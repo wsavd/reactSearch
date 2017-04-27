@@ -6,7 +6,8 @@ class Global extends Component {
   constructor(props){
     super(props);
     this.state = {
-      query: ''
+      query: '',
+      items: []
     }
   }
 
@@ -15,7 +16,12 @@ class Global extends Component {
 
     fetch(`${url}${this.state.query}`,{method: 'GET'})//буква йо x_X
       .then(res => res.json())
-      .then(json => console.log(json/*.body*/))
+      //.then(json => console.log(json/*.body*/))
+      //магия по засовыванию полученных данных в массив items
+      .then(json=>{
+      let {items} = json;
+      this.setState({items});
+      });
   }
 
   render() {
@@ -36,7 +42,7 @@ class Global extends Component {
             />
           </InputGroup>
         </FormGroup>
-      <Gallery />
+      <Gallery items={this.state.items}/>
       </div>
     )
   }

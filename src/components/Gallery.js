@@ -4,7 +4,14 @@ class Gallery extends Component{
     render() {
         return (
         <div>
-            <h1>Hello from Gallery</h1>
+            {
+                this.props.items.map(item=> {
+                    let {title} = item.volumeInfo;
+                    return (
+                        <div>{title}</div>
+                    )
+                })
+            }
         </div>
         )
     }
