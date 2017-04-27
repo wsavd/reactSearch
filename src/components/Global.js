@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import Gallery from './Gallery';
 
 class Global extends Component {
   constructor(props){
@@ -10,9 +11,9 @@ class Global extends Component {
   }
 
   search(){
-    const url = 'https://www.googleapis.com/books/v1/volumes?q=HarryPotter';
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
-    fetch(`${url}`,{method: 'GET'})//буква йо x_X
+    fetch(`${url}${this.state.query}`,{method: 'GET'})//буква йо x_X
       .then(res => res.json())
       .then(json => console.log(json/*.body*/))
   }
@@ -35,6 +36,7 @@ class Global extends Component {
             />
           </InputGroup>
         </FormGroup>
+      <Gallery />
       </div>
     )
   }
