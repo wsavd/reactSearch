@@ -12,9 +12,9 @@ class Global extends Component {
   }
 
   search(){
-    const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+    const url = 'http://localhost:3005/api/v1/items';
 
-    fetch(`${url}${this.state.query}`,{method: 'GET'})//буква йо x_X
+    fetch(`${url}`,{method: 'GET'})//буква йо x_X
       .then(res => res.json())
       //.then(json => console.log(json/*.body*/))
       //магия по засовыванию полученных данных в массив items

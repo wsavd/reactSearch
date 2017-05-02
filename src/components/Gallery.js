@@ -5,10 +5,10 @@ class Gallery extends Component{
         return (
         <div>
             {
-                this.props.items.map(item=> {
+                this.props.items.map((item, index)=> {
                     let {title} = item.volumeInfo;
                     return (
-                        <div>{title}</div>
+                        <div key={index}>{title}</div>
                     )
                 })
             }
